@@ -1,0 +1,17 @@
+# Values set through --set flag
+# Example: 
+#   export CHRONOSPHERE_API_TOKEN=<token>
+#   export CHRONOSPHERE_ORG_NAME=<name> 
+#
+#   helm install oteldemo ./chronocollector-trace-chart --set orgName=$CHRONOSPHERE_ORG_NAME --set apiToken=$CHRONOSPHERE_API_TOKEN -n otel-demo --create-namespace
+
+
+orgName: "" 
+apiToken: ""
+
+# Values relatively stable
+collectorTag: v0.97.0
+
+# Value stable
+appName: chronocollector-tracing
+
