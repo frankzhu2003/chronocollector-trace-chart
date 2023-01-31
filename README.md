@@ -7,6 +7,8 @@ The helm chart installs Chronosphere Collector with Otel Tracing capability in k
 - Kubernetes 1.23+
 - Helm 3.9+
 
+## Installing the Chart
+
 To install the chart with the release name oteldemo, run the following command:
 
 ```console
