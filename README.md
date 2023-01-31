@@ -18,3 +18,4 @@ export CHRONOSPHERE_ORG_NAME=<name>
 
 helm install oteldemo ./chronocollector-trace-chart --set orgName=$CHRONOSPHERE_ORG_NAME --set apiToken=$CHRONOSPHERE_API_TOKEN -n [namespace]
 ```
+The exposed service endpoint is [namespace]-chronocollector-tracing, which is the target endpoint for oTel collector or oTel client.
