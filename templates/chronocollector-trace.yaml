@@ -204,7 +204,7 @@ data:
       # processor defines configuration for processing pods discovered on Kubernetes.
       processor:
         # annotationsPrefix is the prefix for annotations that the collector will use to scrape discovered pods.
-        annotationsPrefix: ${KUBERNETES_PROCESSOR_ANNOTATIONS_PREFIX:"chronosphere.io/"}
+        annotationsPrefix: ${KUBERNETES_PROCESSOR_ANNOTATIONS_PREFIX:"{{ .Values.orgName }}.chronosphere.io/"}
     # ingestion buffering configures any collector side ingest buffering
     ingestionBuffering:
       # The retry buffer is used to replay metric writes in the event of transient failures.
