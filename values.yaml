@@ -10,7 +10,7 @@ orgName: ""
 apiToken: ""
 
 # Values relatively stable
-collectorTag: v0.97.0
+collectorTag: v0.100.1
 
 # Value stable
 appName: chronocollector-tracing
