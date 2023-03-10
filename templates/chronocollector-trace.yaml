@@ -75,7 +75,7 @@ data:
       # scope configures how metric names will be formed.
       scope:
         # prefix defines prefix for all metric names.
-        prefix: "chronocollector"
+        prefix: "{{ .Values.appName }}"
         # tags define custom tags that will be attached to every metric from the collector.
         tags: {}
       # prometheus defines options for the Prometheus reporter.
@@ -103,7 +103,7 @@ data:
         # scope configures how metric names will be formed.
         scope:
           # prefix defines prefix for all metric names.
-          prefix: "chronocollector"
+          prefix: "{{ .Values.appName }}"
           # tags define custom tags that will be attached to every metric from the collector.
           tags: {}
         # prometheus defines options for the Prometheus reporter.
@@ -119,7 +119,7 @@ data:
         # https://bit.ly/39v2yOO
         extended: none
     # listenAddress is the address that collector will serve requests on. Currently supports /metrics and the remote write endpoint if enabled.
-    listenAddress: "${LISTEN_ADDRESS:0.0.0.0:3030}"
+    listenAddress: "${LISTEN_ADDRESS:0.0.0.0:3031}"
     # labels defines key value pairs that will be appended to each metric being sent to the Chronosphere backend.
     labels:
       # defaults defines the default labels.
@@ -266,7 +266,7 @@ spec:
   template:
     metadata:
       annotations:
-        chronosphere.io/port: "3030"
+        chronosphere.io/port: "3031"
         chronosphere.io/scrape: "true"
       labels:
         app: {{ .Release.Namespace }}-{{ .Values.appName }}
@@ -301,15 +301,15 @@ spec:
           failureThreshold: 3
           httpGet:
             path: /health
-            port: 3030
+            port: 3031
           initialDelaySeconds: 5
           periodSeconds: 30
           successThreshold: 1
           timeoutSeconds: 5
         name: {{ .Release.Namespace }}-{{ .Values.appName }}
         ports:
-        - containerPort: 3030
-          hostPort: 3030
+        - containerPort: 3031
+          hostPort: 3031
           name: http
         - containerPort: 4317
           hostPort: 4317
@@ -360,7 +360,7 @@ spec:
   clusterIP: None
   ports:
   - name: http
-    port: 3030
+    port: 3031
     protocol: TCP
     targetPort: http
   - name: otel
